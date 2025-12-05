@@ -1,11 +1,10 @@
-import Image from "next/image";
-import { cn } from "@/lib/utils";
+import prisma from "@/lib/db";
 
-export default function Home() {
-
+export default async function Home() {
+  const posts = await prisma.post.findMany()
   return (
-    <div className={cn("text-red-500 font-extrabold")}>
-      hello world
-    </div>
-  );
+    <main>
+    <h1>Post</h1>
+    </main>
+  )
 }
